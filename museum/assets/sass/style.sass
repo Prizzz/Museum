@@ -1,0 +1,1848 @@
+$bg-dark: #030303
+$red-dark: #710707
+$gold-light: #D2B183
+$gold-dark: #7E6C51
+$gold: #9d8665
+
+@mixin forum
+    font-family: 'Forum', serif
+    font-weight: 400
+    letter-spacing: 5px
+    text-transform: uppercase
+
+@mixin robotoThin
+    font-family: 'Roboto', sans-serif
+    font-weight: 100
+
+@mixin robotoLight
+    font-family: 'Roboto', sans-serif
+    font-weight: 300
+
+    
+*
+    box-sizing: border-box
+    margin: 0
+    scroll-behavior: smooth
+    transition: 0.2s
+    outline: none
+
+body
+    color: #fff
+  
+.container
+    position: relative
+    max-width: 1440px
+    margin: auto
+    height: 100%
+
+.header
+    background-color: $bg-dark
+
+.header-container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    height: 150px
+
+.logo
+    padding-left: 75px
+    background: url(assets/svg/logo.svg) no-repeat
+    +forum
+    font-size: 28px
+
+.header-nav
+    display: flex
+    padding: 0
+
+.nav-item
+    margin-left: 55px
+    color: #fff
+    +robotoThin
+    font-size: 22px
+    letter-spacing: 2px
+    text-decoration: none
+    &:hover
+        color: $gold-dark
+li
+    list-style: none
+
+.welcome
+    height: 810px
+    background-color: $bg-dark
+    .container
+        position: relative
+        background: url(assets/img/welcome/1.jpg) top right no-repeat
+        background-size: 70%
+        &::after
+            content: ''
+            position: absolute
+            top: 0
+            left: 28%
+            display: block
+            width: 750px
+            height: calc(100% - 70px)
+            background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.5) 16.19%, rgba(0, 0, 0, 0) 30.73%)
+    .section-title
+        margin-bottom: 25px
+.welcome-content
+    position: relative
+    max-width: 600px
+    padding-top: 150px
+    z-index: 1
+
+.section-title
+    +forum
+    font-size: 80px
+    margin-bottom: 75px
+
+.underline
+    padding-bottom: 18px
+    border-bottom: 3px solid $red-dark
+
+.gold
+    color: $gold
+
+.welcome-description
+    +robotoLight
+    font-size: 28px
+    letter-spacing: 2px
+    margin-bottom: 75px
+
+.welcome-button
+    display: inline-block
+    height: 75px
+    padding: 28px 67px 22px 67px
+    border-radius: 10px
+    background-color: $red-dark
+    +robotoLight
+    font-size: 22px
+    letter-spacing: 2px
+    color: #fff
+    text-decoration: none
+    &:hover
+        background-color: $gold
+    
+.slider
+    &-controls
+        position: absolute
+        bottom: 0
+        right: 0
+        display: flex
+        align-items: center
+        padding: 47px 75px
+        background-color: $bg-dark
+        height: 120px
+    &-counts
+        margin-right: 55px
+        +robotoLight
+        font-size: 22px
+        .current-slide
+            margin-right: 10px
+        .slides:before
+            position: relative
+            top: 2px
+            display: inline-block
+            margin-right: 10px
+            content: ''
+            width: 2px
+            height: 20px
+            background: #fff
+    &-dots
+        display: flex
+        align-items: center
+        margin-right: 60px
+    &-dot
+        display: block
+        width: 16px
+        height: 16px
+        background-color: #fff
+        border: none
+        cursor: pointer
+        &:not(:first-child)
+            margin-left: 25px
+        &:hover
+            background-color: $gold
+.current-dot
+    background-color: $gold-light
+
+.arrow
+    padding: 0
+    background: none
+    border: none
+    cursor: pointer
+    &:not(:first-child)
+        margin-left: 16px
+    &:hover
+        filter: invert(52%) sepia(9%) saturate(1245%) hue-rotate(356deg) brightness(102%) contrast(83%)          
+    
+.cards-wrap
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    row-gap: 70px
+    column-gap: 60px
+
+.visiting
+    padding: 75px 0
+    &-card
+        color: #000
+        text-decoration: none
+        &:hover
+            .card-title::after
+                width: 100%
+    .underline
+        padding-bottom: 27px
+
+.card-img
+    width: 440px
+    height: 285px
+    margin-bottom: 25px
+
+.card-title
+    position: relative
+    margin-bottom: 10px
+    font-size: 32px
+    &::after
+        content: ''
+        position: absolute
+        bottom: -10px
+        display: block
+        width: 300px
+        height: 2px
+        background-color: $red-dark
+        transition: 0.2s
+    
+.card-description
+    margin-top: 20px
+    +robotoThin
+    font-size: 22px
+    span
+        display: block
+        margin-top: 10px
+        font-size: 18px
+    
+.explore
+    padding: 90px 0 75px 0
+    background-color: $bg-dark
+    .container
+        display: flex
+        justify-content: space-between
+    &-content
+        max-width: 659px
+    &-description
+        margin-bottom: 25px
+        +robotoLight
+        font-size: 22px
+        line-height: 38px
+    &-comp-slider 
+        position: relative
+        height: 700px
+        width: 720px
+        overflow: hidden
+    &-img
+        width: 100%
+        height: 100%
+        position: absolute
+    &-line-top
+        width: 6px
+        height: calc(50% - 20px)
+        position: absolute
+        background-color: white
+        left: 61%
+        top: 0
+        transform: translateX(-50%)
+        cursor: pointer
+    &-line-bot
+        width: 6px
+        height: calc(50% - 20px)
+        position: absolute
+        background-color: white
+        left: 61%
+        bottom: 0
+        transform: translateX(-50%)
+        cursor: pointer
+    &-circle
+        position: absolute
+        width: 39px
+        height: 39px
+        border: 6px solid white
+        top: 50%
+        left: 61%
+        transform: translate(-50%, -50%)
+        border-radius: 50%
+        cursor: pointer
+    &-slider
+        position: relative
+        -webkit-appearance: none
+        width: calc(100% + 40px)
+        margin-left: -20px
+        height: 100%
+        cursor: pointer
+        background-color: transparent
+        outline: none
+        &::-webkit-slider-thumb
+            -webkit-appearance: none
+            height: 700px
+            width: 3px
+            background-color: transparent
+            background-size: contain
+            cursor: pointer
+    &-img
+        width: 720px
+        height: 700px
+    .underline
+        padding-bottom: 9px
+
+.video
+    padding: 70px 0 78px 0
+    color: #000
+    &-header
+        display: flex;
+        justify-content: space-between
+    &-description
+        max-width: 720px
+        margin-top: 10px
+        +robotoLight
+        font-size: 22px
+        line-height: 38px
+
+.main-video-wrapper
+    position: relative
+
+.main-video
+    width: 100%
+    height: 735px
+    min-width: 100%;
+    object-fit: cover;
+
+.main-play
+    position: absolute
+    top: 45%
+    left: 50%
+    width: 220px
+    height: 220px
+    border: none
+    transform: translate(-50%, -50%)
+    background: url(assets/svg/main-play.svg)
+    cursor: pointer
+    &:hover
+        filter: brightness(0.8)
+
+.playlist
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-top: 40px
+
+.video-controls
+    position: absolute
+    bottom: 0
+    width: 100%
+    height: 85px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0 25px 0 30px
+    background-color: #000
+    .play
+        width: 23px
+        height: 31px
+        background: url(assets/svg/play.svg)
+        cursor: pointer
+        border: none
+        &:hover
+            filter: brightness(0.8)
+    .volume
+        width: 38px
+        height: 31px
+        background: url(assets/svg/volume.svg)
+        cursor: pointer
+        border: none
+        &:hover
+            filter: brightness(0.8)
+    .fullscreen
+        width: 35px
+        height: 35px
+        background: url(assets/svg/fullscreen.svg)
+        cursor: pointer
+        border: none
+        &:hover
+            filter: brightness(0.8)
+
+    .bar
+        background: linear-gradient(to right, $red-dark 0%, $red-dark 54%, #C4C4C4 54%, #C4C4C4 100%)     
+        height: 8px
+        width: 929px
+        outline: none
+        transition: background 450ms ease-in
+        -webkit-appearance: none
+
+    .volumebar
+        background: linear-gradient(to right, $red-dark 0%, $red-dark 40%, #C4C4C4 40%, #C4C4C4 100%)  
+        width: 155px
+
+    .bar::-webkit-slider-thumb
+        width: 15px
+        height: 15px
+        border-radius: 50%
+        -webkit-appearance: none
+        cursor: ew-resize
+        background: #fff
+        
+.video-slider
+    &-controls
+        max-width: 200px
+        margin: auto
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin-top: 33px
+    &-left
+        background: url(assets/svg/video-arr-left.svg) no-repeat
+    &-right
+        background: url(assets/svg/video-arr-right.svg) no-repeat
+    &-button
+        width: 10px
+        height: 12px
+        border: none
+        cursor: pointer
+        &:hover
+            filter: brightness(0.8)
+    &-dots
+        display: flex
+        justify-content: space-between
+        min-width: 140px
+        padding: 0
+        li
+            display: block
+            width: 12px
+            height: 12px
+            padding: 0
+            background-color: #999
+            border-radius: 50%
+            border: none
+            cursor: pointer
+            &:hover
+                background-color: $red-dark
+        .slick-active
+            background-color: #333 !important
+        button 
+            display: none
+
+.gallery
+    padding-top: 75px
+    background-color: #000
+    overflow-y: hidden
+    &-container
+        height: 1960px
+    &-inner-container
+        display: flex
+        column-gap: 36px
+    &-column
+        display: flex
+        flex-direction: column
+        row-gap: 24px
+        margin-top: 52px
+        &-img
+            width: 456px
+            transform: translate(0px, 50%)
+            opacity: 0
+            transition: all 0.8s ease 0s
+    .middle
+        margin: 0
+    &-shadow
+        position: absolute
+        bottom: 0
+        width: 100%
+        height: 360px
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)
+
+._active-anim
+    opacity: 1
+    transform: translate(0px, 0px)
+
+.tickets
+    padding: 75px 0
+    color: #000
+    .underline
+        padding-bottom: 29px
+    &-content
+        display: flex
+        justify-content: space-between
+    &-img
+        width: 720px
+        height: 550px
+    &-settings
+        display: flex
+        justify-content: space-between
+    &-type
+        padding-right: 75px
+        margin-right: 190px
+    .settings-title
+        margin-bottom: 50px
+        +robotoLight
+        font-weight: 700
+        font-size: 28px
+    .input-container
+        position: relative
+        display: block
+        padding-left: 40px
+        margin-bottom: 23px
+        cursor: pointer
+        +robotoLight
+        font-size: 22px
+        user-select: none
+        input
+            display: none
+    .checkmark
+        position: absolute
+        top: 5px
+        left: 0
+        height: 17px
+        width: 17px
+        background-color: transparent
+        border: 1px solid #000
+        border-radius: 50%
+        &:hover
+           background-color: #dadada
+        &::after
+            content: ""
+            position: absolute
+            top: 4px
+            left: 4px
+            display: none
+            width: 7px
+            height: 7px
+            border-radius: 50%
+            background-color: #000
+    input:checked ~ .checkmark:after
+        display: block
+    &-amount
+        display: flex
+        flex-direction: column
+        .settings-title
+            margin-bottom: 25px
+            text-align: end
+        .amount-title
+            margin-bottom: 13px
+            +robotoLight
+            font-size: 22px            
+        .number
+            text-align: center
+            +robotoLight
+            font-size: 22px
+            border: none
+            outline: none
+            &-wrap
+                width: 150px
+                display: flex
+                align-items: center
+                justify-content: space-around
+                padding: 3px 0
+                margin-bottom: 10px
+                border: 3px solid #000
+        button
+            background: none
+            border: none
+            +robotoLight
+            font-weight: 400
+            font-size: 32px
+            cursor: pointer
+    .price
+        margin-top: 35px
+        margin-bottom: 58px
+        +robotoLight
+        font-weight: 700
+        font-size: 28px
+        letter-spacing: 1.65px
+
+    .buy
+        position: absolute
+        right: 0
+        bottom: 105px
+        padding: 12px 38px
+        background-color: #000
+        border: none
+        border-radius: 2px
+        color: #fff
+        +robotoLight
+        font-size: 22px
+        letter-spacing: 2px
+        cursor: pointer
+        &:hover
+            color: #000
+            background-color: #9D8665
+
+.parallax
+    width: 100%
+    background: url(assets/img/parallax.webp)
+    min-height: 400px
+    background-attachment: fixed
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+
+.contacts
+    padding: 75px 0 
+    color: #000
+    &-content
+        display: flex
+        justify-content: space-between
+    &-title
+        margin-bottom: 50px
+        +robotoLight
+        font-weight: 500
+        font-size: 28px
+    .underline
+        padding-bottom: 27px
+    &-property
+        display: block
+        margin-bottom: 25px
+        +robotoLight
+        font-size: 22px
+        a
+            color: #000
+            text-decoration: none
+            +robotoLight
+            font-size: 22px
+#contacts-map
+    width: 960px
+    height: 620px
+
+.footer
+    padding: 85px 0 50px 0
+    background-color: #000
+    &-main
+        display: flex
+        justify-content: space-between
+        column-gap: 145px
+    &-nav
+        max-width: 365px
+        display: flex
+        flex-wrap: wrap
+        column-gap: 165px
+        padding: 0
+        .nav-item
+            display: block
+            margin: 0
+            margin-bottom: 25px
+        &-second
+            display: none
+    &-social
+        margin-bottom: 30px
+    &-header
+        padding-bottom: 25px
+        border-bottom: 3px solid #666
+        .container
+            display: flex
+            justify-content: space-between
+            align-items: flex-end
+    &-info
+        .container
+            display: flex
+            justify-content: space-between
+            align-items: center
+            margin-top: 50px
+        span, a
+            color: #fff
+            +robotoThin
+            font-size: 22px
+            letter-spacing: 2px
+            text-decoration: none
+.social
+    &-list
+        display: flex
+        padding: 0
+    &-item
+        position: relative
+        width: 48px
+        height: 48px
+        margin-left: 25px
+        border: 1px solid #666666
+        border-radius: 50%
+        img
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+        &:hover
+            filter: invert(54%) sepia(18%) saturate(606%) hue-rotate(356deg) brightness(96%) contrast(92%)
+    
+.overlay
+    position: absolute
+    top: 0
+    width: 100%
+    height: 100%
+.booking
+    position: fixed
+    z-index: 1
+    left: -100%
+    top: 0
+    width: 100%
+    height: 100%
+    padding: 30px 0
+    overflow: auto
+    background-color: rgba(0,0,0,0.4)
+    color: #000
+    background-color: #00000048
+    .close
+        position: absolute
+        top: 30px
+        right: 30px
+        cursor: pointer
+    .container   
+        width: 1440px
+        height: 845px
+        background-color: #fff
+        z-index: 2 
+    &-wrap
+        display: flex
+        justify-content: space-between
+        max-width: 970px
+        margin: auto
+        padding: 90px 0
+        column-gap: 40px
+    &-settings
+        width: 400px
+    .section-title
+        margin-bottom: 11px
+        font-size: 50px
+        letter-spacing: 0
+    &-tour
+        padding-bottom: 10px
+        margin-bottom: 60px
+        +robotoLight
+        font-weight: 400
+        color: $red-dark
+        font-size: 18px
+    &-form
+        display: flex
+        flex-direction: column
+        row-gap: 20px
+        input, select
+            width: 100%
+            height: 45px
+            padding: 0 15px 0 43px
+            border: 1px solid #000
+            +robotoLight
+            font-weight: 400
+            font-size: 18px
+            color: #000
+        select
+            appearance: none;
+            background: url('assets/svg/booking/select-arrow.svg') no-repeat right center;
+            background-position-x: calc(100% - 15px)
+            option:first-child
+                display: none
+                +robotoLight
+                font-size: 18px
+        ::-webkit-input-placeholder
+            color: #000
+        .datetime
+            display: flex
+            justify-content: space-between
+            .date, .time
+                position: relative
+            span
+                position: absolute
+                top: 12px
+                left: 46px
+                +robotoLight
+                font-weight: 400
+                font-size: 18px
+            .date-input
+                width: 190px
+                appearance: none;
+                background: url('assets/svg/booking/date.svg') no-repeat right center;
+                background-position-x: 15px
+
+            ::-webkit-calendar-picker-indicator 
+                background: url('assets/svg/booking/select-arrow.svg') no-repeat right center;
+            input::-webkit-datetime-edit
+                color: transparent
+            input:focus::-webkit-datetime-edit
+                color: #000
+            .time-input
+                width: 190px
+                appearance: none;
+                background: url('assets/svg/booking/time.svg') no-repeat right center;
+                background-position-x: 15px
+        .text-input-wrap
+            position: relative
+            img
+                position: absolute;
+                top: 50%
+                left: 15px
+                transform: translateY(-50%)
+    .setting-amount
+        border: 1px solid #000
+        padding: 10px 15px
+        .amount-title
+            padding-bottom: 5px
+            margin-bottom: 15px
+            +forum
+            font-size: 18px
+            text-transform: none
+            letter-spacing: 0
+        .amounts
+            display: flex
+            justify-content: space-between
+        .amount
+            display: flex
+            flex-direction: column
+            justify-content: space-around
+            align-items: flex-start
+            row-gap: 18px
+            p
+                +robotoLight
+                font-weight: 400
+                font-size: 18px
+        .number-wrap
+            border: 1px solid #000
+            input
+                position: relative
+                left: -2px
+                width: 27px
+                height: 23px
+                padding: 0
+                padding-left: 4px
+                border: none
+                text-align: center
+            button
+                width: 33px
+                height: 23px
+                padding: 0
+                border: none
+                color: #fff
+                background-color: #000
+                +robotoLight
+                font-weight: 700
+                font-size: 18px
+                cursor: pointer
+    &-overview
+        width: 530px
+        padding: 25px 30px
+        border: 1px solid #000
+        .over
+            &-header
+                display: flex
+                justify-content: space-between
+                margin-bottom: 18px
+            &-title
+                +robotoLight
+                font-weight: 500
+                font-size: 32px
+                margin-bottom: 2px
+            &-subtitle
+                margin-bottom: 10px
+                +robotoLight
+                font-weight: 500
+                font-size: 22px
+                color: $red-dark
+            &-info
+                padding: 0
+                &-item
+                    margin-bottom: 5px
+                    +robotoLight
+                    font-size: 18px
+                    img
+                        margin-right: 15px
+            &-img
+                height: 120px
+
+        .receipt
+            &-list
+                margin-bottom: 10px
+                &-item
+                    display: flex
+                    justify-content: space-between
+                    align-items: center
+                    margin-bottom: 2px
+                    &__info-price
+                        +robotoLight
+                        font-weight: 400
+                        font-size: 22px
+                &-amount
+                    padding: 0 11px
+                    border-radius: 5px
+                    color: #A4A4A3
+                    background-color: $bg-dark
+                    +robotoLight
+                    font-weight: 400
+                    font-size: 18px
+                &-type
+                    +robotoLight
+                    font-weight: 400
+                    font-size: 22px
+                    margin-left: 5px
+            &-total
+                display: flex
+                justify-content: space-between
+                padding-top: 11px
+                border-top: 2px solid $red-dark
+                &-title
+                    +robotoLight
+                    font-weight: 400
+                    font-size: 32px
+                &-price
+                    +robotoLight
+                    font-weight: 500
+                    font-size: 32px
+        .card
+            position: relative
+            max-width: 470px
+            margin-top: 10px
+            input
+                height: 35px
+                padding-left: 10px
+                border: none
+            .front-card
+                position: relative
+                padding: 15px 20px
+                max-width: 360px
+                background-color: #BCBCBC
+                border-radius: 3px
+                z-index: 1
+                img
+                    position: absolute
+                    top: 34px
+                    right: 20px
+                p
+                    margin-bottom: 5px
+                    +robotoLight
+                    font-weight: 400
+                    font-size: 12px
+                .header-text
+                    width: 219px
+                    margin-bottom: 10px
+                .number
+                    width: 100px
+                    margin-bottom: 10px
+                    &:first-child
+                        margin-right: 15px
+                .text
+                    width: 100%
+            .back-card
+                position: absolute
+                top: 30px
+                right: 0
+                width: 360px
+            .back-card-wrap
+                position: relative  
+                padding: 15px 20px
+                max-width: 360px
+                height: 211px
+                background-color: #939393
+                border-radius: 3px
+                p
+                    +robotoLight
+                    font-weight: 400
+                    font-size: 12px
+                input
+                    width: 75px
+                    margin-bottom: 6px
+                .cvc
+                    text-align: center
+                    margin-bottom: 5px
+                .cvc-info
+                    max-width: 55px
+                    margin: auto
+                    font-size: 10px
+                .cvc-wrap
+                    position: absolute
+                    bottom: 15px
+                    right: 20px
+                    max-width: 75px
+                .black-code
+                    position: absolute
+                    top: 25px
+                    left: 0
+                    width: 100%
+                    height: 45px
+                    background-color: #000
+        .book
+            position: absolute
+            top: 265px
+            right: 0
+            padding: 11px 85px
+            border: none
+            background-color: $red-dark
+            color: #fff
+            +robotoLight
+            font-weight: 400
+            font-size: 22px
+            cursor: pointer
+            &:hover
+                filter: brightness(0.8)
+
+.show
+    left: 0
+
+iframe
+    display: block
+    margin: auto
+    border: 0
+
+.burger
+    &-images
+        display: none
+    &-images-second
+        display: none
+    &-social
+        display: none
+    &-menu
+        position: absolute
+        left: -100%
+        width: 297px
+        height: 585px
+        padding-top: 35px
+        padding-left: 55px
+        z-index: 11
+        background: $bg-dark
+
+        &-list
+            padding: 0
+            list-style: none
+            li
+                display: flex
+                align-items: baseline
+                justify-content: space-between
+                max-width: 122px
+                &:hover
+                    filter: invert(52%) sepia(9%) saturate(1245%) hue-rotate(356deg) brightness(102%) contrast(83%)  
+    &-item
+        display: inline-block
+        margin-bottom: 25px
+        +robotoLight
+        font-size: 20px
+        letter-spacing: 2px
+        color: #fff
+        text-decoration: none
+
+    &-icon
+        display: none
+        position: absolute
+        right: 0
+        top: 65px
+        width: 30px
+        height: 20px
+        z-index: 12
+        cursor: pointer
+
+        span
+            position: absolute
+            left: 0
+            top: 9px
+            width: 100%
+            height: 2px
+            background-color: #fff
+            transition: 0.3s
+
+        &::before,
+        &::after
+            content: ''
+            position: absolute
+            left: 0
+            width: 100%
+            height: 2px
+            background-color: #fff
+            transition: 0.3s
+
+        &::before
+            top: 0
+
+        &::after
+            bottom: 0
+
+.burger-menu.active
+    left: 0
+
+.burger-icon.active::before
+    top: 9px
+    transform: rotate(45deg)
+
+.burger-icon.active::after
+    bottom: 9px
+    transform: rotate(-45deg)
+
+.burger-icon.active span
+    transform: scale(0)
+
+.hidden
+    opacity: 0
+
+@media (max-width: 1440px)
+    .container
+        max-width: 984px
+    .header
+        &-container
+            height: 140px
+        &-nav
+            display: none
+        .logo
+            position: relative
+            top: 5px
+    .section-title
+        font-size: 50px
+    .welcome
+        height: 585px
+        &-content
+            padding-top: 50px
+        .section-title
+            line-height: 90px
+            letter-spacing: 5px
+        &-description
+            font-size: 24px
+            margin-bottom: 50px
+        &-button
+            height: 60px
+            padding: 18px 45px 22px 45px
+            font-size: 20px
+        .slider 
+            &-controls
+                padding-left: 225px
+            &-counts
+                margin-right: 45px
+                font-size: 20px
+                .slides:before
+                    height: 16px
+                    width: 1px
+                    right: 2px
+            &-dots
+                margin-right: 45px
+            &-dot
+                width: 12px
+                height: 12px
+    .visiting
+        padding-top: 72px
+        padding-bottom: 59px
+        .section-title
+            margin-bottom: 60px
+        .cards-wrap
+            justify-content: center
+            column-gap: 108px
+            row-gap: 58px
+        .card-title
+            font-size: 28px
+            letter-spacing: 3px
+            margin-bottom: 22px
+            &::after
+                width: 150px
+        .card-description
+            font-size: 20px
+            span
+                font-size: 16px
+        .card-img
+            width: 330px
+            height: 215px
+            margin-bottom: 22px
+    .explore
+        padding-top: 70px
+        padding-bottom: 60px
+        .underline
+            padding-bottom: 30px
+            margin-bottom: 60px
+        .container
+            flex-direction: column
+            align-items: center
+        &-content
+            max-width: 100%
+        &-description
+            margin-bottom: 0
+            line-height: 37px 
+            font-size: 20px
+            &:last-child
+                display: none
+        &-comp-slider
+            margin-top: 60px
+    .video
+        padding-bottom: 60px
+        .section-title
+            margin-bottom: 50px
+        &-description
+            display: none
+        .main
+            &-video
+                height: 504px
+            &-play
+                top: 43.5%
+                width: 152px
+                height: 152px
+                background-size: 100%   
+        &-controls
+            height: 60px
+            bottom: 4px
+            padding: 0 40px 0 40px
+            .bar
+                position: relative
+                height: 4px
+            .progressbar
+                width: 564px
+            .volumebar
+                width: 143px
+            .fullscreen
+                width: 26px
+                height: 26px
+                background-size: 100%
+            .volume
+                width: 26px
+                height: 20px
+                background-size: 100%
+                &::-webkit-slider-thumb
+                    width: 13px
+                    height: 13px
+        .playlist
+            margin-top: 36px
+            iframe
+                width: 300px
+                height: 170px
+        &-slider-controls
+            margin-top: 36px
+    .gallery
+        padding-top: 70px
+        .section-title
+            margin-bottom: 70px
+        .gallery-column-img
+            width: 304px
+        &-container
+            height: 1265px
+    .tickets
+        padding-top: 70px
+        padding-bottom: 60px
+        .section-title
+            padding-bottom: 30px
+            margin-bottom: 60px
+        &-img
+            width: 700px
+            height: 440px
+            object-fit: cover
+        &-type
+            display: none
+        .settings-title
+            text-align: inherit
+        &-content
+            justify-content: start
+        &-amount
+            margin-left: 80px
+            .settings-title
+                margin-bottom: 28px
+            .amount-title
+                margin-bottom: 8px
+            .number-wrap
+                padding-right: 5px
+                margin-bottom: 29px
+                width: 175px
+                .number
+                    padding-left: 20px
+        .price
+            margin-top: -7px
+            span
+                margin-left: 16px
+        .buy
+            bottom: 0
+            right: 27px
+    .contacts
+        padding-top: 70px
+        padding-bottom: 61px
+        .section-title
+            padding-bottom: 30px
+            margin-bottom: 60px
+        &-title
+            font-size: 24px
+            margin-bottom: 30px
+        &-property
+            font-size: 20px
+            margin-bottom: 15px
+            a
+                font-size: 20px
+    #contacts-map
+        width: 695px
+        height: 455px
+    .footer
+        padding-top: 60px
+        &-main
+            column-gap: 105px
+        nav
+            position: relative
+            right: 65px
+            top: 5px
+        &-nav
+            column-gap: 122px
+        &-social
+            margin-bottom: 23px
+    .booking
+        .container
+            max-width: 1024px
+            height: 768px
+        &-wrap
+            padding-bottom: 30px
+            padding-top: 75px
+        .section-title
+            margin-bottom: 8px
+        .setting-amount
+            padding: 11px 15px
+        .over-info-item
+            margin-bottom: 4px
+        &-overview
+            .card
+                .front-card
+                    .number:first-child
+                        margin-right: 10px
+        .close
+            right: 27px
+    .burger-icon
+        display: block
+        
+@media (max-width: 1023px)
+    .container
+        max-width: 728px
+    .section-title
+        font-size: 40px
+    .header
+        &-container
+            height: 110px
+        .burger-icon
+            top: 45px
+    .welcome
+        height: 861px
+        .container
+            background: url(assets/img/welcome/1.jpg) top no-repeat
+            background-size: 100%
+            background-position-y: 215px
+            &::after
+                display: none
+        .section-title
+            line-height: 60px
+        &-content
+            margin: auto
+            padding-top: 0
+            text-align: center
+        &-description
+            font-size: 20px
+        &-button
+            display: none
+        .slider
+            &-controls
+                left: 50%
+                transform: translateX(-50%)
+                width: max-content
+                height: 100px
+                padding: 0
+    .visiting
+        padding-top: 48px
+        padding-bottom: 80px
+        .section-title
+            margin-bottom: 41px
+        .cards-wrap
+            column-gap: 56px
+            row-gap: 40px
+            .card-title
+                font-size: 22px
+                margin-bottom: 0
+            .card-img
+                width: 280px
+                height: 180px
+            .card-description
+                font-size: 18px
+    .explore
+        padding-top: 48px
+        padding-bottom: 40px
+        .section-title
+            margin-bottom: 38px
+        &-content
+            width: 100%
+            p
+                display: none
+        &-comp-slider
+            width: 728px
+            height: 700px
+            margin-top: 0
+    .video
+        padding-top: 48px
+        padding-bottom: 80px
+        .section-title
+            margin-bottom: 28px
+        .main-play
+            top: 42.5%
+            width: 80px
+            height: 80px
+        .main-video
+            height: 386px
+        &-controls
+            height: 58px
+            .play
+                position: relative
+                right: 10px
+            .volume
+                position: relative
+                right: 3px
+            .fullscreen
+                position: relative
+                left: 10px
+        .progressbar
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+        .volumebar
+            top: 3px
+            width: 486px
+        .playlist
+            margin-top: 15px
+            &-video
+                iframe
+                    width: 355px
+                    height: 200px
+                &:last-child
+                    display: none
+        &-slider
+            &-controls
+                max-width: 190px
+                margin-top: 15px
+            &-dot
+                width: 10px
+                height: 10px
+    .gallery
+        padding-top: 50px
+        height: 1221px
+        .section-title
+            margin-bottom: 45px
+        &-inner-container
+            column-gap: 24px
+        &-column
+            &:last-child
+                display: none
+            &-img
+                width: 352px !important
+    .tickets
+        padding-top: 47px
+        padding-bottom: 72px
+        .section-title
+            margin-bottom: 40px
+        &-img
+            width: 444px
+            height: 340px
+        &-amount
+            margin-left: 60px
+            .settings-title
+                margin-bottom: 36px
+            .number-wrap
+                margin-bottom: 24px
+                .number
+                    padding-left: 5px
+        .price
+            margin-top: 13px
+        .buy
+            right: 47px
+            bottom: -33px
+    .parallax
+        min-height: 300px
+    .contacts
+        padding-top: 47px
+        padding-bottom: 74px
+        .section-title
+            margin-bottom: 37px
+        &-title
+            font-size: 20px
+            margin-bottom: 40px
+        &-property
+            font-size: 18px
+            margin-bottom: 14px
+            a
+                font-size: 18px
+        &-content
+            flex-direction: column
+        &-info
+            margin-bottom: 25px
+    #contacts-map
+        width: 728px
+        height: 476px
+    .footer
+        padding-top: 48px
+        &-header
+            padding-bottom: 45px
+            border-bottom: 1px solid #666;
+            .container
+                flex-direction: column
+        &-info
+            .container
+                margin-top: 38px
+        &-main
+            position: relative
+            right: 80px
+        &-social         
+            position: relative
+            right: 90px
+            top: 30px
+        nav
+            right: 7px
+            top: 7px
+        &-nav
+            max-width: max-content
+            column-gap: 184px
+        .nav-item
+            font-size: 18px
+    .booking
+        .container
+            max-width: 590px
+            height: 1480px
+            padding: 0 30px
+        &-wrap
+            padding-top: 82px
+            flex-direction: column
+            row-gap: 50px
+        &-settings
+            width: 100%
+        &-overview
+            width: 100%
+            padding: 25px 14px
+            padding-bottom: 125px
+            .card
+                margin-top: 14px
+                .back-card
+                    right: -30px
+        &-tour
+            margin-bottom: 40px
+        .datetime
+            input
+                width: 250px !important
+        .book
+            right: -30px
+    .burger
+        &-menu
+            left: -200%
+            padding-top: 32px
+            padding-left: 35px
+            width: 100%
+            height: 861px
+        &-images
+            max-width: 658px
+            display: flex
+            flex-wrap: wrap
+            row-gap: 20px
+            column-gap: 20px
+            margin-top: 10px
+            padding-bottom: 34px
+            border-bottom: 1px solid #fff
+        &-social
+            display: block
+            position: relative
+            right: 30px
+            width: max-content
+            margin: auto
+            margin-top: 34px
+@media (max-width: 767px)
+    .container
+        max-width: 380px
+    .section-title
+        font-size: 28px
+    .header
+        &-container
+            height: 90px
+        .logo
+            top: 0
+            background-size: 29px
+            font-size: 16px
+            padding-left: 55px
+        .burger-icon
+            top: 35px
+    .welcome
+        height: 544px
+        .container
+            background-position-y: 175px;
+        .section-title
+            padding-top: 6px
+            line-height: 40px
+        &-description
+            font-size: 16px
+        .slider
+            &-controls
+                width: 230px
+                height: 80px
+                justify-content: space-between
+            &-counts
+                font-size: 16px
+                margin: 0
+                .slides:before
+                    margin-right: 5px
+                .current-slide
+                    margin-right: 5px
+            &-dots
+                margin: 0
+            &-dot
+                width: 7px
+                height: 7px
+                padding: 0
+                &:not(:first-child)
+                    margin-left: 10px
+            .count
+                margin-right: 5px
+        .arrow
+            &:not(:first-child)
+                margin-left: 10px
+            img
+                width: 20px
+                height: 8px
+
+    .visiting
+        padding-top: 45px
+        padding-bottom: 40px
+        .underline
+            padding-bottom: 24px
+        .cards-wrap
+            row-gap: 41px
+            .card-img
+                margin-bottom: 20px
+            .card-title
+                letter-spacing: 5px
+                font-size: 18px
+                &::after
+                    bottom: -13px
+            .card-description
+                margin-top: 23px
+                font-size: 16px
+    .explore
+        padding-top: 45px
+        padding-bottom: 40px
+        .underline
+            padding-bottom: 24px
+        &-comp-slider
+            width: 100%
+            height: 368px
+        &-img
+            width: 100%
+            height: auto
+        &-line-top,
+        &-line-bot
+            width: 2px
+            height: calc(50% - 10px)
+        &-circle
+            width: 20px
+            height: 20px
+            border: 2px solid #fff
+    .video
+        padding-top: 42px
+        padding-bottom: 38px
+        .section-title
+            margin-bottom: 24px
+        .main-video
+            height: 226px
+        .main-play
+            top: 37%
+            width: 50px
+            height: 50px
+        &-controls
+            height: 54px
+            .volumebar
+                width: 195px
+                left: 7px
+            .bar::-webkit-slider-thumb
+                width: 10px
+                height: 10px
+            .play
+                width: 14px
+                height: 18px
+                right: 21px
+                background-size: cover
+            .volume
+                width: 18px
+                height: 14px
+                right: 9px
+            .fullscreen
+                width: 18px
+                height: 18px
+                left: 21px
+        .playlist
+            margin-top: 35px
+            &-video
+                iframe
+                    width: 180px
+                    height: 101px
+        &-slider
+            &-controls
+                max-width: 180px
+                margin-top: 35px
+            &-dots
+                min-width: 120px
+            &-dot
+                width: 8px
+                height: 8px
+    .gallery
+        padding-top: 45px
+        height: 757px
+        .section-title
+            margin-bottom: 42px
+        .gallery-column-img
+            width: 178px !important
+    .tickets
+        padding-top: 45px
+        .section-title
+            padding-bottom: 24px
+        &-content
+            flex-direction: column
+        &-img
+            width: 100%
+            height: 160px
+        &-amount
+            margin: 0
+            .amount-title
+                font-size: 16px
+                margin-bottom: 14px
+            .number-wrap
+                margin-bottom: 19px
+        &-settings
+            margin-top: 40px
+            justify-content: center
+        .settings-title
+            text-align: center
+            font-size: 16px
+            margin-bottom: 20px
+        .price
+            margin-top: 20px
+            text-align: center
+            font-size: 16px
+            letter-spacing: 0px
+            span
+                margin-left: 0
+        .buy
+            right: 102px
+            font-size: 16px
+            padding: 16px 50px
+    .contacts
+        padding-bottom: 44px
+        .section-title
+            padding-bottom: 22px
+            margin-bottom: 41px
+        &-title
+            font-size: 16px
+        &-property
+            font-size: 16px
+            a
+                font-size: 16px
+    #contacts-map
+        width: 380px
+        height: 248px
+    .footer
+        padding-top: 42px
+        &-header
+            padding-bottom: 35px
+        &-info
+            a, span
+                font-size: 16px
+            .container
+                margin-top: 41px
+        .container
+            align-items: flex-start
+        .logo
+            padding-left: 49px
+            font-size: 16px
+            background-size: 29px
+        &-main
+            right: 0
+            flex-direction: column
+        nav
+            margin-top: 33px
+            right: 0
+        &-nav
+            display: none
+            &-second
+                max-width: 380px
+                display: flex
+                padding: 0
+                column-gap: 88px
+                .nav-item
+                    display: block
+                    font-size: 16px
+                    margin: 0
+                    margin-bottom: 30px
+        &-social
+            left: 55px
+            top: 17px
+        .social-item
+            margin-left: 5px
+        .rs
+            display: none
+    .booking 
+        .container
+            max-width: 420px
+            height: 1754px
+        .datetime
+            flex-direction: column
+            row-gap: 20px
+            input
+                width: 100% !important
+        .section-title
+            font-size: 32px
+            margin-bottom: 13px
+            margin-top: -5px
+        &-overview
+            .over-img
+                height: 95px
+            .card
+                .back-card
+                    position: relative
+                    right: 0
+                    width: 100%
+        .book
+            right: 0
+            top: 480px
+    .burger
+        &-menu
+            height: 544px
+        &-images-second
+            max-width: 310px
+            display: flex
+            flex-wrap: wrap
+            column-gap: 12px
+            margin-top: 5px
+            padding-bottom: 20px
+            border-bottom: 1px solid #fff
+        &-images
+            display: none
+        &-social
+            right: 19px
+            display: block
+            margin-top: 25px
+            .social-item
+                margin-left: 5px
+
+@media (max-width: 419px)
+    .container
+        width: 95%
+    .explore
+        &-comp-slider
+            height: 295px
+    .video
+        &-controls
+            height: 40px
+        .playlist
+            margin-top: 20px
+            &-video
+                iframe
+                    width: 98%
+    .gallery 
+        .gallery-column-img
+            width: 100% !important
+    .tickets
+        .buy
+            padding: 16px 37px
+            right: 0
+            left: 50%
+            transform: translateX(-50%)
+    #contacts-map
+        width: 100%
+    .footer
+        &-nav-second
+            column-gap: 50px
+        &-social
+            margin: auto
+            left: 0
+            top: 10px
+    .burger
+        &-social
+            position: static
+        &-menu
+            padding-left: 0
+        &-images-second
+            margin: auto
+            column-gap: 9px
