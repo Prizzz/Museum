@@ -1,72 +1,6 @@
 "use strict";
 
-/*video progress-bars controls*/
-const progressBar = document.querySelector(".progressbar");
-const volumeBar = document.querySelector(".volumebar");
-
-progressBar.addEventListener("input", function () {
-  const value = this.value;
-  this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
-});
-
-volumeBar.addEventListener("input", function () {
-  const value = this.value;
-  this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
-});
-
-/*gallery-random*/
-function galleryRandom() {
-  function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
-  const imgSource = shuffle([
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-  ]);
-  const galleryColumns = document.querySelectorAll(".gallery-column");
-  let elems = "";
-  let i = 0;
-  let column = 0;
-
-  imgSource.forEach((item) => {
-    let img = `<img class="gallery-column-img" src="assets/img/gallery/gallery${item}.webp" alt="gallery${item}">`;
-    elems += img;
-    i++;
-    if (i == 4) {
-      galleryColumns[column].innerHTML = elems;
-      elems = "";
-      i = 0;
-      column++;
-    }
-  });
-}
-
-galleryRandom();
-
-/*modal window*/
-function modalWindow() {
-  const modal = document.querySelector(".booking"),
-    close = document.querySelector(".close"),
-    overlay = document.querySelector(".overlay"),
-    button = document.querySelector(".buy");
-
-  button.addEventListener("click", () => {
-    modal.classList.add("show");
-  });
-
-  close.addEventListener("click", () => {
-    modal.classList.remove("show");
-  });
-
-  overlay.addEventListener("click", () => {
-    modal.classList.remove("show");
-  });
-}
-modalWindow();
+import "./customVideoPlayer.js";
 
 /*burger menu*/
 function burgerMenu() {
@@ -87,7 +21,6 @@ function burgerMenu() {
     }
   });
 }
-burgerMenu();
 
 /*welcome-slider*/
 function welcomeSlider() {
@@ -129,15 +62,79 @@ function welcomeSlider() {
     }
   });
 }
-welcomeSlider();
+
+/*video progress-bars controls*/
+function progressbarControls() {
+  const progressBar = document.querySelector(".progressbar");
+  const volumeBar = document.querySelector(".volumebar");
+
+  progressBar.addEventListener("input", function () {
+    const value = this.value;
+    this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
+  });
+
+  volumeBar.addEventListener("input", function () {
+    const value = this.value;
+    this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
+  });
+}
+
+/*gallery-random*/
+function galleryRandom() {
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  const imgSource = shuffle([
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+  ]);
+  const galleryColumns = document.querySelectorAll(".gallery-column");
+  let elems = "";
+  let i = 0;
+  let column = 0;
+
+  imgSource.forEach((item) => {
+    let img = `<img class="gallery-column-img" src="assets/img/gallery/gallery${item}.webp" alt="gallery${item}">`;
+    elems += img;
+    i++;
+    if (i == 4) {
+      galleryColumns[column].innerHTML = elems;
+      elems = "";
+      i = 0;
+      column++;
+    }
+  });
+}
+
+/*modal window*/
+function modalWindow() {
+  const modal = document.querySelector(".booking"),
+    close = document.querySelector(".close"),
+    overlay = document.querySelector(".overlay"),
+    button = document.querySelector(".buy");
+
+  button.addEventListener("click", () => {
+    modal.classList.add("show");
+  });
+
+  close.addEventListener("click", () => {
+    modal.classList.remove("show");
+  });
+
+  overlay.addEventListener("click", () => {
+    modal.classList.remove("show");
+  });
+}
 
 /*explore-slider*/
-
 function slide() {
   let slideValue = document.querySelector(".explore-slider").value;
   const imgBefore = document.querySelector(".explore-img_before");
 
-  //imgAfter.style.clipPath = `polygon(0 0, ${slideValue}% 0, ${slideValue}% 100%, 0, 100%)`;
   imgBefore.style.clipPath =
     "polygon(0 0," + slideValue + "% 0," + slideValue + "% 100%, 0 100%)";
 
@@ -151,37 +148,38 @@ function slide() {
 }
 
 /*map*/
+function map() {
+  mapboxgl.accessToken =
+    "pk.eyJ1IjoicHJpenp6IiwiYSI6ImNrdWxnZ2N2OTFtbDMyd215MmN2cmQzOXgifQ.NHtbnICb-QWA8MGN4T48fw";
+  const map = new mapboxgl.Map({
+    container: "contacts-map",
+    style: "mapbox://styles/mapbox/light-v10",
+    center: [2.3364, 48.86091],
+    zoom: 16,
+  });
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoicHJpenp6IiwiYSI6ImNrdWxnZ2N2OTFtbDMyd215MmN2cmQzOXgifQ.NHtbnICb-QWA8MGN4T48fw";
-const map = new mapboxgl.Map({
-  container: "contacts-map",
-  style: "mapbox://styles/mapbox/light-v10",
-  center: [2.3364, 48.86091],
-  zoom: 16,
-});
+  map.addControl(new mapboxgl.NavigationControl());
 
-map.addControl(new mapboxgl.NavigationControl());
+  const marker1 = new mapboxgl.Marker({ color: "black" })
+    .setLngLat([2.3364, 48.86091])
+    .addTo(map);
 
-const marker1 = new mapboxgl.Marker({ color: "black" })
-  .setLngLat([2.3364, 48.86091])
-  .addTo(map);
+  const marker2 = new mapboxgl.Marker({ color: "grey" })
+    .setLngLat([2.3333, 48.8602])
+    .addTo(map);
 
-const marker2 = new mapboxgl.Marker({ color: "grey" })
-  .setLngLat([2.3333, 48.8602])
-  .addTo(map);
+  const marker3 = new mapboxgl.Marker({ color: "grey" })
+    .setLngLat([2.3397, 48.8607])
+    .addTo(map);
 
-const marker3 = new mapboxgl.Marker({ color: "grey" })
-  .setLngLat([2.3397, 48.8607])
-  .addTo(map);
+  const marker4 = new mapboxgl.Marker({ color: "grey" })
+    .setLngLat([2.333, 48.8619])
+    .addTo(map);
 
-const marker4 = new mapboxgl.Marker({ color: "grey" })
-  .setLngLat([2.333, 48.8619])
-  .addTo(map);
-
-const marker5 = new mapboxgl.Marker({ color: "grey" })
-  .setLngLat([2.3365, 48.8625])
-  .addTo(map);
+  const marker5 = new mapboxgl.Marker({ color: "grey" })
+    .setLngLat([2.3365, 48.8625])
+    .addTo(map);
+}
 
 /*gallery-anim*/
 
@@ -222,7 +220,6 @@ function galleryAnim() {
     animOnScroll();
   }
 }
-galleryAnim();
 
 /*tickets-calc*/
 
@@ -312,4 +309,12 @@ function videoSlider() {
     }
   });
 }
+
+welcomeSlider();
+progressbarControls();
+galleryRandom();
+galleryAnim();
+modalWindow();
+burgerMenu();
+map();
 videoSlider();

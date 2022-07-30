@@ -532,6 +532,7 @@ li {
   width: 23px;
   height: 31px;
   background: url(assets/svg/play.svg);
+  background-size: contain;
   cursor: pointer;
   border: none;
 }
