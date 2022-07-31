@@ -1,11 +1,14 @@
+const player = document.querySelector(".main-video-wrapper");
 const video = document.querySelector(".main-video");
 const mainPlayButton = document.querySelector(".main-play");
 const playButton = document.querySelector(".play");
 const progressBar = document.querySelector(".progressbar");
 const volumeBar = document.querySelector(".volumebar");
 const volumeIcon = document.querySelector(".volume");
-let volumeToggled = false;
+const fullscreenButton = document.querySelector(".fullscreen");
 let volume = volumeBar.value;
+let volumeToggled = false;
+let fullscreened = false;
 
 function toggle() {
   if (video.paused) {
@@ -64,6 +67,16 @@ function volumeToggle() {
   }
 }
 
+function fullscreen() {
+  if (fullscreened) {
+    document.exitFullscreen();
+    fullscreened = false;
+  } else {
+    player.requestFullscreen();
+    fullscreened = true;
+  }
+}
+
 video.addEventListener("click", toggle);
 mainPlayButton.addEventListener("click", toggle);
 playButton.addEventListener("click", toggle);
@@ -77,3 +90,5 @@ progressBar.addEventListener("mouseup", () => (mousedown = false));
 
 volumeBar.addEventListener("input", volumeControl);
 volumeIcon.addEventListener("click", volumeToggle);
+
+fullscreenButton.addEventListener("click", fullscreen);
