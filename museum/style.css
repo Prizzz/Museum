@@ -2919,4 +2919,7 @@ iframe {
        -moz-column-gap: 9px;
             column-gap: 9px;
   }
+  .booking {
+    zoom: 0.7;
+  }
 }
