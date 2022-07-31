@@ -10,6 +10,19 @@ let volume = volumeBar.value;
 let volumeToggled = false;
 let fullscreened = false;
 
+function progressbarControls() {
+  progressBar.addEventListener("input", function () {
+    const value = this.value;
+    this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
+  });
+
+  volumeBar.addEventListener("input", function () {
+    const value = this.value;
+    this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
+  });
+}
+progressbarControls();
+
 function toggle() {
   if (video.paused) {
     mainPlayButton.style.display = "none";
