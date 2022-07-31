@@ -22,7 +22,7 @@ function toggle() {
 function handleProgress() {
   const percent = (video.currentTime / video.duration) * 100;
   progressBar.style.background = `linear-gradient(to right, #710707 0%, #710707 ${percent}%, #C4C4C4 ${percent}%, #C4C4C4 100%)`;
-  progressBar.value = percent;
+  progressBar.value = percent || 0;
   if (percent == 100) {
     mainPlayButton.style.display = "block";
     playButton.style.backgroundImage = "url(assets/svg/play.svg)";
