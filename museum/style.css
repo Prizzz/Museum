@@ -532,7 +532,7 @@ li {
   width: 23px;
   height: 31px;
   background: url(assets/svg/play.svg);
-  background-size: contain;
+  background-size: cover;
   cursor: pointer;
   border: none;
 }
@@ -546,6 +546,7 @@ li {
   width: 38px;
   height: 31px;
   background: url(assets/svg/volume.svg);
+  background-size: cover;
   cursor: pointer;
   border: none;
 }

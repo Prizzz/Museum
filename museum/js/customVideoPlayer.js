@@ -2,18 +2,21 @@ const video = document.querySelector(".main-video");
 const mainPlayButton = document.querySelector(".main-play");
 const playButton = document.querySelector(".play");
 const progressBar = document.querySelector(".progressbar");
+const volumeBar = document.querySelector(".volumebar");
+const volumeIcon = document.querySelector(".volume");
+let volumeToggled = false;
+let volume = volumeBar.value;
 
 function toggle() {
   if (video.paused) {
     mainPlayButton.style.display = "none";
-    playButton.style.backgroundImage = "url(assets/img/pause.png)";
+    playButton.style.backgroundImage = "url(assets/svg/pause.svg)";
     video.play();
   } else {
     mainPlayButton.style.display = "block";
     playButton.style.backgroundImage = "url(assets/svg/play.svg)";
     video.pause();
   }
-  console.dir(video);
 }
 
 function handleProgress() {
@@ -31,6 +34,36 @@ function scrub(e) {
   video.currentTime = scrubTime;
 }
 
+function volumeControl() {
+  volume = this.value;
+  video.volume = volume / 100;
+
+  if (volume == 0) {
+    volumeIcon.style.backgroundImage = "url(assets/svg/mute.svg)";
+  } else {
+    volumeIcon.style.backgroundImage = "url(assets/svg/volume.svg)";
+  }
+}
+
+function volumeToggle() {
+  if (volume == 0) return;
+  if (volumeToggled) {
+    volumeBar.value = volume;
+    video.volume = volume / 100;
+    volumeIcon.style.backgroundImage = "url(assets/svg/volume.svg)";
+    volumeBar.style.background = `linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) ${volume}%, rgb(196, 196, 196) ${volume}%, rgb(196, 196, 196) 100%)`;
+    volumeToggled = false;
+  } else {
+    volume = volumeBar.value;
+    volumeBar.value = 0;
+    video.volume = 0;
+    volumeIcon.style.backgroundImage = "url(assets/svg/mute.svg)";
+    volumeBar.style.background =
+      "linear-gradient(to right, rgb(113, 7, 7) 0%, rgb(113, 7, 7) 0%, rgb(196, 196, 196) 0%, rgb(196, 196, 196) 100%)";
+    volumeToggled = true;
+  }
+}
+
 video.addEventListener("click", toggle);
 mainPlayButton.addEventListener("click", toggle);
 playButton.addEventListener("click", toggle);
@@ -41,3 +74,6 @@ progressBar.addEventListener("click", scrub);
 progressBar.addEventListener("mousemove", (e) => mousedown && scrub(e));
 progressBar.addEventListener("mousedown", () => (mousedown = true));
 progressBar.addEventListener("mouseup", () => (mousedown = false));
+
+volumeBar.addEventListener("input", volumeControl);
+volumeIcon.addEventListener("click", volumeToggle);

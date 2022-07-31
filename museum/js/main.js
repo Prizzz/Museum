@@ -1,6 +1,7 @@
 "use strict";
 
 import "./customVideoPlayer.js";
+import "./exploreSlider.js";
 
 /*burger menu*/
 function burgerMenu() {
@@ -128,23 +129,6 @@ function modalWindow() {
   overlay.addEventListener("click", () => {
     modal.classList.remove("show");
   });
-}
-
-/*explore-slider*/
-function slide() {
-  let slideValue = document.querySelector(".explore-slider").value;
-  const imgBefore = document.querySelector(".explore-img_before");
-
-  imgBefore.style.clipPath =
-    "polygon(0 0," + slideValue + "% 0," + slideValue + "% 100%, 0 100%)";
-
-  const circle = document.querySelector(".explore-circle");
-  const lineBot = document.querySelector(".explore-line-bot");
-  const lineTop = document.querySelector(".explore-line-top");
-
-  circle.style.left = `${slideValue}%`;
-  lineBot.style.left = `${slideValue}%`;
-  lineTop.style.left = `${slideValue}%`;
 }
 
 /*map*/
