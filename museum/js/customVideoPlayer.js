@@ -77,6 +77,12 @@ function fullscreen() {
   }
 }
 
+function keyController(e) {
+  if (e.keyCode === 32) toggle();
+  if (e.keyCode === 77) volumeToggle();
+  if (e.keyCode === 70) fullscreen();
+}
+
 video.addEventListener("click", toggle);
 mainPlayButton.addEventListener("click", toggle);
 playButton.addEventListener("click", toggle);
@@ -92,3 +98,5 @@ volumeBar.addEventListener("input", volumeControl);
 volumeIcon.addEventListener("click", volumeToggle);
 
 fullscreenButton.addEventListener("click", fullscreen);
+
+document.addEventListener("keydown", keyController);
