@@ -285,15 +285,15 @@
                     <div class="tickets-settings">
                         <div class="tickets-type">
                             <h3 class="settings-title">Ticket Type</h3>
-                            <label class="input-container" onclick="checkType()">Permanent exhibition
+                            <label class="input-container">Permanent exhibition
                                 <input type="radio" value="20" checked="checked" name="radioInput">
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="input-container" onclick="checkType()">Temporary exhibition
+                            <label class="input-container">Temporary exhibition
                                 <input type="radio" value="25" name="radioInput">
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="input-container" onclick="checkType()">Combined Admission
+                            <label class="input-container">Combined Admission
                                 <input type="radio" value="40" name="radioInput">
                                 <span class="checkmark"></span>
                             </label>
@@ -453,15 +453,15 @@
                             <img src="assets/svg/booking/type.svg" alt="name-logo">
                             <select name="type" class="type-select">
                                 <option value="">Ticket Type</option>
-                                <option value="premanent">Permanent exhibition</option>
-                                <option value="temporary">Temporary exhibition</option>
-                                <option value="combined">Combined Admission</option>
+                                <option value="20">Permanent exhibition</option>
+                                <option value="25">Temporary exhibition</option>
+                                <option value="40">Combined Admission</option>
                             </select>
                         </div>
                         <div class="setting-amount">
                             <h4 class="amount-title gold underline">Entry Ticket</h4>
                             <div class="amounts">
-                                <div class="amount">
+                                <div class="amount amount-list">
                                     <p>Basic 18+ (20 €)</p>
                                     <p>Senior 65+ (10 €)</p>
                                 </div>
@@ -487,9 +487,18 @@
                             <h3 class="over-title">Overview</h3>
                             <h4 class="over-subtitle">Tour to Louvre</h4>
                             <ul class="over-info">
-                                <li class="over-info-item"><img src="assets/svg/booking/date.svg" alt="date">Friday, August 19</li>
-                                <li class="over-info-item"><img src="assets/svg/booking/time.svg" alt="time">16 : 30</li>
-                                <li class="over-info-item"><img src="assets/svg/booking/success.svg" alt="type">Temporary exhibition</li>
+                                <li class="over-info-item">
+                                    <img src="assets/svg/booking/date.svg" alt="date">
+                                    <span class="info-date">Friday, August 19</span>
+                                </li>
+                                <li class="over-info-item">
+                                    <img src="assets/svg/booking/time.svg" alt="time">
+                                    <span class="info-time">16 : 30</span>
+                                </li>
+                                <li class="over-info-item">
+                                    <img src="assets/svg/booking/success.svg" alt="type">
+                                    <span class="info-type">Permanent exhibition</span>
+                                </li>
                             </ul>
                         </div>
                         <img src="assets/img/overview.webp" alt="img" class="over-img">
@@ -499,14 +508,14 @@
                             <div class="receipt-list-item">
                                 <div class="receipt-list-item__info">
                                     <span class="receipt-list-amount booking-overview_basic">0</span>
-                                    <span class="receipt-list-type">Basic (20 €)</span>
+                                    <span class="receipt-list-type receipt-list-type_basic">Basic (20 €)</span>
                                 </div>
                                 <span class="receipt-list-item__info-price booking-price_basic">0 €</span>
                             </div>
                             <div class="receipt-list-item">
                                 <div class="receipt-list-item__info">
                                     <span class="receipt-list-amount booking-overview_senior">0</span>
-                                    <span class="receipt-list-type">Senior (10 €)</span>
+                                    <span class="receipt-list-type receipt-list-type_senior">Senior (10 €)</span>
                                 </div>
                                 <span class="receipt-list-item__info-price booking-price_senior">0 €</span>
                             </div>
