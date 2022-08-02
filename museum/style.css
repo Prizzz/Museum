@@ -1381,14 +1381,11 @@ li {
 }
 
 .booking .setting-amount .number-wrap input {
-  position: relative;
-  left: -2px;
-  width: 27px;
+  width: 37px;
   height: 23px;
   padding: 0;
-  padding-left: 4px;
   border: none;
-  text-align: center;
+  text-align: end;
 }
 
 .booking .setting-amount .number-wrap button {

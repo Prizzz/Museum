@@ -17,7 +17,8 @@ const priceTotal = document.querySelector(".price span"),
     ".booking-overview_senior"
   ),
   modalOverviewBasicPrice = document.querySelector(".booking-price_basic"),
-  modalOverviewSeniorPrice = document.querySelector(".booking-price_senior");
+  modalOverviewSeniorPrice = document.querySelector(".booking-price_senior"),
+  modalEntryInputs = document.querySelector(".amount-inputs");
 
 function modalWindow() {
   const modal = document.querySelector(".booking"),
@@ -39,16 +40,25 @@ function modalWindow() {
 }
 modalWindow();
 
-function ticketsCalc() {
-  basicAmount = Number(document.querySelector(".basic").value);
-  seniorAmount = Number(document.querySelector(".senior").value);
+function ticketsCalc(e) {
+  const targetClassName = e.target.className;
+
+  if (targetClassName === "ticket-input") {
+    basicAmount = Number(document.querySelector(".basic").value);
+    seniorAmount = Number(document.querySelector(".senior").value);
+    modalEntryBasicAmount.value = basicAmount;
+    modalEntrySeniorAmount.value = seniorAmount;
+  } else if (targetClassName === "modal-input") {
+    basicAmount = Number(modalEntryBasicAmount.value);
+    seniorAmount = Number(modalEntrySeniorAmount.value);
+    document.querySelector(".basic").value = basicAmount;
+    document.querySelector(".senior").value = seniorAmount;
+  }
 
   const priceValue = BASIC_PRICE * basicAmount + SENIOR_PRICE * seniorAmount;
 
   priceTotal.textContent = priceValue;
   modalPriceTotal.textContent = priceValue + " €";
-  modalEntryBasicAmount.value = basicAmount;
-  modalEntrySeniorAmount.value = seniorAmount;
   modalOverviewBasicAmount.textContent = basicAmount;
   modalOverviewSeniorAmount.textContent = seniorAmount;
   modalOverviewBasicPrice.textContent = basicAmount * BASIC_PRICE + " €";
@@ -56,6 +66,7 @@ function ticketsCalc() {
 }
 
 tickets.addEventListener("click", ticketsCalc);
+modalEntryInputs.addEventListener("click", ticketsCalc);
 
 function getCheckedRadioValue(name) {
   let elements = document.getElementsByName(name);

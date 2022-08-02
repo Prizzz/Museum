@@ -302,15 +302,15 @@
                             <h3 class="settings-title">Amount</h3>
                             <h4 class="amount-title">Basic 18+</h4>
                             <div class="number-wrap">
-                                <button type="button" onclick="this.nextElementSibling.stepDown()">–</button>
+                                <button type="button" class="ticket-input" onclick="this.nextElementSibling.stepDown()">–</button>
                                 <input type="number" min="0" max="20" value="0" readonly class="number basic">
-                                <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                                <button type="button" class="ticket-input" onclick="this.previousElementSibling.stepUp()">+</button>
                             </div>
                             <h4 class="amount-title">Senior 65+</h4>
                             <div class="number-wrap">
-                                <button type="button" onclick="this.nextElementSibling.stepDown()">–</button>
+                                <button type="button" class="ticket-input" onclick="this.nextElementSibling.stepDown()">–</button>
                                 <input type="number" min="0" max="20" value="0" readonly class="number senior">
-                                <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                                <button type="button" class="ticket-input" onclick="this.previousElementSibling.stepUp()">+</button>
                             </div>
                             <span class="price">Total €<span>0</span></span>
                         </div>
@@ -465,16 +465,16 @@
                                     <p>Basic 18+ (20 €)</p>
                                     <p>Senior 65+ (10 €)</p>
                                 </div>
-                                <div class="amount">
+                                <div class="amount amount-inputs">
                                     <div class="number-wrap">
-                                        <button type="button" onclick="this.nextElementSibling.stepDown()">–</button>
+                                        <button type="button" class="modal-input" onclick="this.nextElementSibling.stepDown()">–</button>
                                         <input type="number" min="0" max="20" value="0" readonly class="number booking-entry_basic">
-                                        <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                                        <button type="button" class="modal-input" onclick="this.previousElementSibling.stepUp()">+</button>
                                     </div>
                                     <div class="number-wrap">
-                                        <button type="button" onclick="this.nextElementSibling.stepDown()">–</button>
+                                        <button type="button" class="modal-input" onclick="this.nextElementSibling.stepDown()">–</button>
                                         <input type="number" min="0" max="20" value="0" readonly class="number booking-entry_senior">
-                                        <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                                        <button type="button" class="modal-input" onclick="this.previousElementSibling.stepUp()">+</button>
                                     </div>
                                 </div>
                             </div>
@@ -501,14 +501,14 @@
                                     <span class="receipt-list-amount booking-overview_basic">0</span>
                                     <span class="receipt-list-type">Basic (20 €)</span>
                                 </div>
-                                <span class="receipt-list-item__info-price booking-price_basic">40 €</span>
+                                <span class="receipt-list-item__info-price booking-price_basic">0 €</span>
                             </div>
                             <div class="receipt-list-item">
                                 <div class="receipt-list-item__info">
                                     <span class="receipt-list-amount booking-overview_senior">0</span>
                                     <span class="receipt-list-type">Senior (10 €)</span>
                                 </div>
-                                <span class="receipt-list-item__info-price booking-price_senior">20 €</span>
+                                <span class="receipt-list-item__info-price booking-price_senior">0 €</span>
                             </div>
                         </div>
                         <div class="receipt-total">
