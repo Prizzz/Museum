@@ -105,3 +105,52 @@ function getCheckedRadioValue(e) {
 
 ticketsType.addEventListener("click", getCheckedRadioValue);
 selectType.addEventListener("click", getCheckedRadioValue);
+
+function disableCertainDates() {
+  const today = new Date().toISOString().split("T")[0];
+  document.getElementsByName("date")[0].setAttribute("min", today);
+}
+disableCertainDates();
+
+const dateInput = document.querySelector(".date-input");
+const timeInput = document.querySelector(".time-input");
+const dateContainer = document.querySelector(".info-date");
+const timeContainer = document.querySelector(".info-time");
+
+function dateInfoUpdate() {
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dateFromInput = dateInput.valueAsDate;
+  const month = monthNames[dateFromInput.getMonth()];
+  const day = days[dateFromInput.getDay()];
+  const date = dateFromInput.getDate();
+  dateContainer.textContent = `${day}, ${month} ${date}`;
+}
+
+function timeInfoUpdate() {
+  timeContainer.textContent = timeInput.value.replace(":", " : ");
+}
+
+dateInput.addEventListener("input", dateInfoUpdate);
+timeInput.addEventListener("input", timeInfoUpdate);
