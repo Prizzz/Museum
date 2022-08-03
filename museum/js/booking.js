@@ -154,3 +154,28 @@ function timeInfoUpdate() {
 
 dateInput.addEventListener("input", dateInfoUpdate);
 timeInput.addEventListener("input", timeInfoUpdate);
+
+const datePlaceholder = document.querySelector(".on-text-date");
+const timePlaceholder = document.querySelector(".on-text-time");
+
+dateInput.addEventListener("focus", () => {
+  datePlaceholder.style.display = "none";
+});
+
+dateInput.addEventListener("focusout", () => {
+  datePlaceholder.style.display = "block";
+  if (dateInput.value) {
+    datePlaceholder.textContent = dateInput.value;
+  }
+});
+
+timeInput.addEventListener("focus", () => {
+  timePlaceholder.style.display = "none";
+});
+
+timeInput.addEventListener("focusout", () => {
+  timePlaceholder.style.display = "block";
+  if (timeInput.value) {
+    timePlaceholder.textContent = timeInput.value;
+  }
+});
