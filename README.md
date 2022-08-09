@@ -11,6 +11,6 @@ Landing page for Louvre museum. This project is a part of [The Rolling Scopes Sc
 * Created animated gallery
 * Created a calculator for buying tickets
 
-![louvre](https://i.imgur.com/jDLH9ga.jpg)
-
 **[See this site alive (deploy)](https://prizzz.github.io/Museum/museum/)**
+
+![louvre](https://i.imgur.com/jDLH9ga.jpg)
